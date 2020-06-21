@@ -1,0 +1,28 @@
+<!--
+    Para o form funcionar precisa:
+    - usuario-cadastro.componente.ts, nomeio os parametros
+        ----:  selector: 'usuario-cadastro',
+        ----:  templateUrl: './usuario-cadastro.component.html',
+        ----:  adiciono a classe usuario publicamente: public usuario:Usuario = new Usuario()
+        ----:  faço o import da classe FormsModule: usuario.module.ts
+                import { FormsModule} from '@angular/forms'
+        ----:  adiciono as rotas: usuario.routing.module.ts
+                {
+                   path: 'add',
+                   component: UsuarioCadastroComponent
+                }
+    - usuario-cadastro.componente.html
+-->
+<form action="">
+    <div>
+        <label for="">Nome</label>
+        <input type="text" name="nome" [(ngModel)]="usuario.nome">
+    </div>
+    <div>
+        <label for="">Email</label>
+        <input type="email" name="email" [(ngModel)]="usuario.email">
+    </div>
+    <button (click)="salvar()">Salvar</button>
+
+    {{ usuario | json}}
+</form>
