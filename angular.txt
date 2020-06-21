@@ -1,0 +1,141 @@
+
+--- Angular 7
+fontes:https://gitlab.com/curso-angular7?sort=name_asc
+Primeng: https://www.primefaces.org/primeng/
+
+-- nodes: 8x para cima funciona bem com angular 7
+
+Caracteristicas:
+
+a - componente:
+	- ng generate component menu
+	- ng generate component home
+	- ng generate component usuario
+
+b - module:
+	- ng generate module usuario
+	- ng generate module home
+	
+c - service
+	- ng generate service usuario
+	
+d - classes
+	- ng generate class usuario
+
+
+
+
+---> instalações:
+
+1. Nodes 12.x
+https://nodejs.org/en/ 
+node-v12.18.1-x64.msi
+
+C:\code\Angular_API>node -v
+v12.18.1
+
+C:\code\Angular_API>npm -v
+6.14.5
+
+2. Angular: Step 1: Install the Angular CLI
+https://angular.io/
+
+npm install -g @angular/cli
+
+3. criar projeto
+
+ng new "projeto"
+
+#verificar versao angular
+ng version
+
+4. para rodar
+C:\code\Angular_API\projeto>ng serve --open
+
+
+5. gerando componente: menu
+C:\code\Angular_API\projeto>ng generate component menu
+
+6. adicionando rotas
+# https://angular.io/tutorial/toh-pt5
+ng generate module app-routing --flat --module=app
+
+aula 10:
+layse load: carregamento de bibliotecas js somente qdo precisar
+ service:
+ a. chamo o objeto usuario no 
+
+aula 12: api IBGE
+https://servicodados.ibge.gov.br/api/docs/localidades?versao=1
+
+https://servicodados.ibge.gov.br/api/v1/localidades/estados
+ 
+ 1. module 
+	C:\code\Angular_API\primeiro-projeto>ng generate module estados
+ 2. componente 
+	C:\code\Angular_API\primeiro-projeto>ng generate component estados
+ 3. cria rotas
+	estados.routing.module.ts
+ 4. adicionar a chamados de: EstadosRoutingModule no estados.modulo.ts
+	 imports: [
+		CommonModule,
+		EstadosRoutingModule
+	]
+ 5. adiciona a chamada de estados na rota principal: app-routing.module.ts
+		{
+			path: 'estados',
+			loadChildren: () => import('src/app/estados/estados.module').then(m => m.EstadosModule)
+		},
+
+ 6. Por fim adiciona o link no menu:menu.component.html
+	<div>
+		<a routerLink = "estados" >Estados</a>
+	</div>
+ 
+ 7. para executar a api e carregar os estados precisa de um servico:
+ C:\code\Angular_API\primeiro-projeto>ng generate service estados
+ 
+ 8. para carregar um servico de api precisa de: http, então carregamos: app.module.ts
+	import { HttpClientModule } from '@angular/common/http'
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		CommonModule,
+		HttpClientModule
+	],
+
+
+aula 13: https://www.primefaces.org/primeng/
+
+instalação: https://www.primefaces.org/primeng/showcase/#/setup
+
+npm install primeng --save
+C:\code\Angular_API\primeiro-projeto>npm install primeng --save    
+
+npm install primeicons --save
+C:\code\Angular_API\primeiro-projeto>npm install primeicons --save 
+
+npm install @angular/animations --save
+C:\code\Angular_API\primeiro-projeto>npm install @angular/animations --save
+
+1. adiciona a chamada de animations no app.module.ts
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+2. adiciona no css: angular.json
+    "styles": [
+              "src/styles.css",
+             --> "node_modules/primeicons/primeicons.css",
+             --> "node_modules/primeng/resources/themes/nova-light/theme.css",
+             --> "node_modules/primeng/resources/primeng.min.css"
+            ],
+
+
+
+aula 16: enviroment
+
+-- Para chamar outro ambiente: ng serve --prod (ambiente de producao)
+
+
+***para especificar que quer o enviroment de homologacao:
+-- Para chamar outro ambiente: ng serve -c hmg (ambiente configurado)
+
