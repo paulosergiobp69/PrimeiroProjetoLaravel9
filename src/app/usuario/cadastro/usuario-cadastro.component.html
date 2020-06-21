@@ -13,16 +13,24 @@
                 }
     - usuario-cadastro.componente.html
 -->
-<form action="">
-    <div>
-        <label for="">Nome</label>
-        <input type="text" name="nome" [(ngModel)]="usuario.nome">
+<h3></h3>
+<span class="ui-float-label">
+    <div class="ui-inputgroup">
+        <span class="ui-inputgroup-addon"><i class="pi pi-user"></i></span>
+        <input type="text" name="nome"  pInputText [(ngModel)]="usuario.nome" placeholder="Username">         
     </div>
-    <div>
-        <label for="">Email</label>
-        <input type="email" name="email" [(ngModel)]="usuario.email">
-    </div>
-    <button (click)="salvar()">Salvar</button>
+</span>
+<h3></h3>
+<span class="ui-float-label">
+    <div class="ui-inputgroup">
+        <span class="ui-inputgroup-addon"><i class="pi pi-inbox"></i></span>
+        <input type="email"  name="email" pInputText [(ngModel)]="usuario.email"  placeholder="Email">         
+    </div>    
+</span>
+<h3></h3>
+
+<button  pButton  (click)="salvar()" label="Salvar"></button>
+<h3></h3>
+
 
     {{ usuario | json}}
-</form>

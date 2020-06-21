@@ -1,28 +1,16 @@
-<p>usuario works!</p>
-<div>Nome do Usuário:</div>
-<div>{{usr.nome}}</div>
-
-
-<div>
-    <table>
+<p-table [value]="usuarios">
+    <ng-template pTemplate="header">
         <tr>
             <th>Nome</th>
-            <th>Email***</th>
+            <th>E-mail</th>
         </tr>
-        <tr *ngFor="let usuario of usuarios;">
-            <td>
-                {{usuario.nome}}
-            </td>
-            <td>
-                {{usuario.email}}
-            </td>
-
+    </ng-template>
+    <ng-template pTemplate="body" let-usuario>
+        <tr>
+            <td>{{usuario.nome}}</td>
+            <td>{{usuario.email}}</td>
         </tr>
-    </table>
-
-</div>
-<div>
-    <button routerLink="add">
-        add
-    </button>
-</div>
+    </ng-template>
+</p-table>
+<h3></h3>
+<button pButton routerLink="add" type="button" label="Cadastra Usuario" ></button>

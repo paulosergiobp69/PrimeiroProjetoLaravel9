@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {MenubarModule} from 'primeng/menubar';
+import {MenuItem} from 'primeng/api';
+
 
 @Component({
   selector: 'menu',
@@ -7,14 +10,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
   
-  public texto:string;
-
-  constructor() { }
+  items:MenuItem[]
 
   ngOnInit(): void {
-    this.texto = "Olá Mundo";
-  }
-  clicou(){
-      this.texto = "Clicou";
-  }
+        this.items = [
+          {
+              label: 'Home',
+              items: [{
+                      label: 'Home', 
+                      icon: 'pi pi-fw pi-home',
+                      routerLink:"home"
+                  },
+              ]
+          },
+          {
+              label: 'Usuário',
+              items: [{
+                label: 'Usuário', 
+                icon: 'pi pi-fw pi-user',
+                routerLink:"usuario"
+              }
+            ]
+          },
+          {
+            label: 'Estado',
+            items: [{
+              label: 'Estado', 
+              icon: 'pi pi-fw pi-user',
+              routerLink:"estados"
+            }
+          ]
+        }
+    ];
+    }    
 }
