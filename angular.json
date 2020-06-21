@@ -59,6 +59,14 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "hmg":{
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.hmg.ts"
+                }
+              ]
             }
           }
         },
@@ -70,7 +78,11 @@
           "configurations": {
             "production": {
               "browserTarget": "primeiro-projeto:build:production"
+            },
+            "hmg": {
+              "browserTarget": "primeiro-projeto:build:hmg"
             }
+
           }
         },
         "extract-i18n": {

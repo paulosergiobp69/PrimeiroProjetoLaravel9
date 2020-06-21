@@ -9,6 +9,8 @@ import {ButtonModule} from 'primeng/button';
 
 import {InputTextModule} from 'primeng/inputtext';
 
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+
 @NgModule({
   declarations: [UsuarioComponent, UsuarioCadastroComponent],
   imports: [
@@ -17,7 +19,8 @@ import {InputTextModule} from 'primeng/inputtext';
     FormsModule,
     TableModule,
     ButtonModule,
-    InputTextModule
+    InputTextModule,
+    ConfirmDialogModule
 
   ]
 })
